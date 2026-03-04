@@ -2,6 +2,7 @@
 import { defineConfig, devices } from '@playwright/test';
 import 'dotenv/config';
 
+
 export default defineConfig({
   testDir: './tests',
 
@@ -12,6 +13,7 @@ export default defineConfig({
   reporter: 'html',
 
   use: {
+    baseURL: 'https://thinking-tester-contact-list.herokuapp.com',
     trace: 'on-first-retry',
   },
 
@@ -19,30 +21,30 @@ export default defineConfig({
     // ======================
     // UI PROJECTS (Browsers)
     // ======================
-    {
-      name: 'chromium',
-      testDir: './tests/ui',
-      use: {
-        ...devices['Desktop Chrome'],
-        baseURL: 'http://localhost:3000',
-      },
-    },
-    {
-      name: 'firefox',
-      testDir: './tests/ui',
-      use: {
-        ...devices['Desktop Firefox'],
-        baseURL: 'http://localhost:3000',
-      },
-    },
-    {
-      name: 'webkit',
-      testDir: './tests/ui',
-      use: {
-        ...devices['Desktop Safari'],
-        baseURL: 'http://localhost:3000',
-      },
-    },
+    // {
+    //   name: 'chromium',
+    //   testDir: './tests/ui',
+    //   use: {
+    //     ...devices['Desktop Chrome'],
+    //     baseURL: 'http://localhost:3000',
+    //   },
+    // },
+    // {
+    //   name: 'firefox',
+    //   testDir: './tests/ui',
+    //   use: {
+    //     ...devices['Desktop Firefox'],
+    //     baseURL: 'http://localhost:3000',
+    //   },
+    // },
+    // {
+    //   name: 'webkit',
+    //   testDir: './tests/ui',
+    //   use: {
+    //     ...devices['Desktop Safari'],
+    //     baseURL: 'http://localhost:3000',
+    //   },
+    // },
 
     // ======================
     // API PROJECT
@@ -51,11 +53,7 @@ export default defineConfig({
       name: 'api',
       testDir: './tests/api',
       use: {
-        baseURL: process.env.API_BASE_URL,
-        extraHTTPHeaders: {
-          'Accept': 'application/vnd.github.v3+json',
-          'Authorization': `token ${process.env.API_TOKEN}`,
-        },
+        baseURL: 'https://thinking-tester-contact-list.herokuapp.com',
       },
     },
   ],
