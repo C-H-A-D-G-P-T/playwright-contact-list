@@ -11,13 +11,14 @@ test.beforeAll("get token first", async ({ request }) => {
 			password: 'Qwerty1209!',
 		},
 	});
+	console.log(getToken.status());
 	expect(getToken.ok()).toBeTruthy();
 	const response = await getToken.json();
 	token = response.token;
 });
 
 test("should sign up successfully", async ({ request }) => {
-	const signUp = await request.post("/userss", {
+	const signUp = await request.post("/users", {
 		data: {
 			firstName: dataPrep.firstName,
 			lastName: dataPrep.lastName,
