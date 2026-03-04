@@ -2,6 +2,19 @@ import { test, expect } from "@playwright/test";
 import { prepareContactData } from "../../utils/DataPrep.js";
 
 const dataPrep = prepareContactData();
+let token;
+
+test.beforeAll("get token first", async ({ request }) => {
+	const getToken = await request.post("/users/login", {
+		data: {
+			email: process.env.API_EMAIL,
+			password: process.env.API_PASSWORD,
+		},
+	});
+	expect(getToken.ok()).toBeTruthy();
+	const response = await getToken.json();
+	token = response.token;
+});
 
 test("should sign up successfully", async ({ request }) => {
 	const signUp = await request.post("/userss", {
@@ -42,7 +55,7 @@ test("should log in successfully", async ({ request }) => {
 test("should get user profile successfully", async ({ request }) => {
 	const getProfile = await request.get("/users/me", {
 		headers: {
-			Authorization: `Bearer ${process.env.API_TOKEN}`,
+			Authorization: `Bearer ${token}`,
 		},
 	});
 
