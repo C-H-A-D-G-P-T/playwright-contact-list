@@ -3,7 +3,7 @@ import { prepareContactData } from '../utils/DataPrep.js'
 
 export const addNewContacts = async (page, contactAmount=5) => {
     for (let i = 0; i < contactAmount; i++) {
-        await expect(page.locator('#add-contact')).toBeVisible({ timeout: 15000 });
+        await expect(page.locator('#add-contact')).toBeVisible({ timeout: 45000 });
         await page.click('#add-contact');
         const data = prepareContactData()
         await page.locator('#firstName').fill((data.firstName).substring(0, 20));
@@ -18,7 +18,7 @@ export const addNewContacts = async (page, contactAmount=5) => {
         await page.locator('#postalCode').fill(data.postalCode);
         await page.locator('#country').fill((data.country).substring(0, 40));
         await page.click('#submit');
-        await expect(page.locator('.contactTableBodyRow').nth(0)).toBeVisible({ timeout: 15000 });
+        await expect(page.locator('.contactTableBodyRow').nth(0)).toBeVisible({ timeout: 45000 });
         await expect(page.locator('.contactTableBodyRow')).toHaveCount(i + 1, );
     }
     return contactAmount

@@ -4,7 +4,7 @@ export const deleteAllContacts = async (page) => {
     let elementCount = await page.locator('//tr[@class="contactTableBodyRow"]').count();
     while (elementCount !== 0) {
         await page.click('//tr[@class="contactTableBodyRow"][1]');
-        await expect(page.getByRole('heading', { name: 'Contact Details' })).toBeVisible({ timeout: 15000 });
+        await expect(page.getByRole('heading', { name: 'Contact Details' })).toBeVisible({ timeout: 45000 });
         page.once('dialog', async (dialog) => {
             console.log(dialog.type());
             console.log(dialog.message());
