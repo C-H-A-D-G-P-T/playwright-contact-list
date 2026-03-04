@@ -11,12 +11,6 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   reporter: 'html',
 
-  webServer: {
-    command: 'npm run',
-    port: 3000,
-    reuseExistingServer: !process.env.CI,
-  },
-
   use: {
     trace: 'on-first-retry',
   },
