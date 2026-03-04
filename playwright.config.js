@@ -3,8 +3,6 @@ import { defineConfig, devices } from '@playwright/test';
 import 'dotenv/config';
 
 export default defineConfig({
-  globalSetup: './globalSetup.js',
-
   testDir: './tests',
 
   fullyParallel: true,
