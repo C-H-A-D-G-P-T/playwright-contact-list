@@ -12,7 +12,7 @@ export default defineConfig({
   reporter: 'html',
 
   webServer: {
-    command: 'npm start',
+    command: 'npm run',
     port: 3000,
     reuseExistingServer: !process.env.CI,
   },
