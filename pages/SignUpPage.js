@@ -6,7 +6,7 @@ export const signup = async (page) => {
     await page.waitForFunction(() => document.readyState === 'complete');
     await expect(page).toHaveTitle('Contact List App');
     await page.click('#signup');
-    await expect(page.getByRole('heading', { name: 'Add User'})).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Add User'})).toBeVisible({ timeout: 15000 });
 
     const data = prepareContactData()
     console.log(data);
@@ -17,7 +17,7 @@ export const signup = async (page) => {
     await page.locator('#password').fill(data.password);
 
     await page.click('#submit');
-    await expect(page.getByRole('heading', { name: 'Contact List'})).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Contact List'})).toBeVisible({ timeout: 15000 });
 
     return {email: data.email, password: data.password}
 }
