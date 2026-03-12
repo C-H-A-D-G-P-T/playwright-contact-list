@@ -1,5 +1,6 @@
 import { test, expect } from "@playwright/test";
 import { prepareContactData } from "../../utils/DataPrep.js";
+import { email, password, firstName, lastName } from '../../temp/RegUserData.json'
 
 const dataPrep = prepareContactData();
 const getToken = async () => {
@@ -11,8 +12,8 @@ const getToken = async () => {
 				"Content-Type": "application/json",
 			},
 			body: JSON.stringify({
-				email: "mycontacttest@yopmail.com",
-				password: "Qwerty1209!",
+				email: email,
+				password: password,
 			}),
 		},
 	);
@@ -43,8 +44,8 @@ test("should sign up successfully", async ({ request }) => {
 test("should log in successfully", async ({ request }) => {
 	const logIn = await request.post("/users/login", {
 		data: {
-			email: "mycontacttest@yopmail.com",
-			password: "Qwerty1209!",
+			email: email,
+			password: password,
 		},
 	});
 
@@ -52,9 +53,9 @@ test("should log in successfully", async ({ request }) => {
 	console.log(response);
 
 	expect(logIn.ok()).toBeTruthy();
-	expect(response.user.firstName).toBe("Warit");
-	expect(response.user.lastName).toBe("Tanmanee");
-	expect(response.user.email).toBe("mycontacttest@yopmail.com");
+	expect(response.user.firstName).toBe(firstName);
+	expect(response.user.lastName).toBe(lastName);
+	expect(response.user.email).toBe(email);
 });
 
 test("should get user profile successfully", async ({ request }) => {
@@ -69,7 +70,7 @@ test("should get user profile successfully", async ({ request }) => {
 	console.log(response);
 
 	expect(getProfile.ok).toBeTruthy();
-	expect(response.firstName).toBe("Warit");
-	expect(response.lastName).toBe("Tanmanee");
-	expect(response.email).toBe("mycontacttest@yopmail.com");
+	expect(response.firstName).toBe(firstName);
+	expect(response.lastName).toBe(lastName);
+	expect(response.email).toBe(email);
 });
