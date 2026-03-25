@@ -1,0 +1,17 @@
+{
+  user: {
+    _id: '69a85738a8c5a50015b99887',
+    firstName: 'Warit',
+    lastName: 'Tanmanee',
+    email: 'mycontacttest@yopmail.com',
+    __v: 167
+  },
+  token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OWE4NTczOGE4YzVhNTAwMTViOTk4ODciLCJpYXQiOjE3NzMzODgyNjZ9.V4Gcgh-xgu1ymYK9aRuCAnziXYr5A4P93wXSTdf0oqo'
+}
+{
+  _id: '69a85738a8c5a50015b99887',
+  firstName: 'Warit',
+  lastName: 'Tanmanee',
+  email: 'mycontacttest@yopmail.com',
+  __v: 167
+}

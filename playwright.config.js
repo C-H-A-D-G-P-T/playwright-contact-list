@@ -1,33 +1,38 @@
 // @ts-check
-import { defineConfig, devices } from "@playwright/test";
+import { defineConfig, devices } from '@playwright/test';
 // import "dotenv/config";
 
 export default defineConfig({
-	testDir: "./tests",
+	testDir: './tests',
 
 	fullyParallel: true,
 	workers: 1,
 	retries: 3,
-	reporter: "html",
+	// reporter: 'html',
 
 	use: {
-		baseURL: "https://thinking-tester-contact-list.herokuapp.com",
-		trace: "on-first-retry",
+		baseURL: 'https://thinking-tester-contact-list.herokuapp.com',
+		trace: 'on-first-retry',
 	},
 
 	expect: {
 		timeout: 10000,
 	},
 
+	reporter: [
+		['line'],
+		['allure-playwright', { resultsDir: 'allure-results' }],
+		['html', { open: 'never' }], // Optional: keeps the standard HTML report too
+	],
 	projects: [
 		// ======================
 		// UI PROJECTS (Browsers)
 		// ======================
 		{
-			name: "chromium",
-			testDir: "./tests/ui",
+			name: 'chromium',
+			testDir: './tests/ui',
 			use: {
-				...devices["Desktop Chrome"],
+				...devices['Desktop Chrome'],
 			},
 		},
 		// {
@@ -49,8 +54,8 @@ export default defineConfig({
 		// API PROJECT
 		// ======================
 		{
-			name: "api",
-			testDir: "./tests/api",
+			name: 'api',
+			testDir: './tests/api',
 		},
 	],
 });

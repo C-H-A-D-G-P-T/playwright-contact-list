@@ -1,0 +1,10 @@
+{
+  user: {
+    _id: '69b3c1e819c156001532c86a',
+    firstName: 'Alice',
+    lastName: 'Harris',
+    email: 't1773388264674_187@gmail.com',
+    __v: 1
+  },
+  token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OWIzYzFlODE5YzE1NjAwMTUzMmM4NmEiLCJpYXQiOjE3NzMzODgyNjR9.MNeTo-kXJcNotZ4-JD82PafvuO4zQSBjn3VqxmE6iHw'
+}
