@@ -5,9 +5,13 @@ pipeline {
         stage('Install') {
             steps {
                 script {
-                    def shell = isUnix() ? sh : bat
-                    shell('npm install')
-                    shell('npx playwright install')
+                    if (isUnix()) {
+                        sh 'npm install'
+                        sh 'npx playwright install'
+                    } else {
+                        bat 'npm install'
+                        bat 'npx playwright install'
+                    }
                 }
             }
         }
@@ -15,9 +19,13 @@ pipeline {
         stage('Test') {
             steps {
                 script {
-                    def shell = isUnix() ? sh : bat
-                    shell('npx playwright test e2e')
-                    shell('npx playwright test api')
+                    if (isUnix()) {
+                        sh 'npx playwright test e2e'
+                        sh 'npx playwright test api'
+                    } else {
+                        bat 'npx playwright test e2e'
+                        bat 'npx playwright test api'
+                    }
                 }
             }
         }
