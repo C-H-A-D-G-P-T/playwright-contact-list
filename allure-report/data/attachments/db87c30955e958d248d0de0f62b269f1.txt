@@ -1,0 +1,10 @@
+{
+  user: {
+    _id: '69ccecb5e174bc00158a27ad',
+    firstName: 'Joey',
+    lastName: 'Hintz',
+    email: 't1775037620295_617@gmail.com',
+    __v: 1
+  },
+  token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OWNjZWNiNWUxNzRiYzAwMTU4YTI3YWQiLCJpYXQiOjE3NzUwMzc2MjF9.Fvtmn-RFwGEei66efW9YvDp3Dvjv68LwCpfmqCHE7w8'
+}
